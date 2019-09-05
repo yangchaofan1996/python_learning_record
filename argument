@@ -1,0 +1,21 @@
+5th Sep & 关于参数学习的一些思考
+
+参数首先分为四种：位置参数：传统的sum(a,b,c) 出现在哪个位置就是那个位置的参数
+
+                 默认参数：提前在sum中给出了赋值，如sum(a,b=2,c=3)
+                 
+                 可变参数: 以sum(*nums)的形式给出，sum = sum(1,2,3),也可以操作预先给的list or tuple，再sum = sum(*list),都是数值元组
+                 
+                 关键字参数:扩展型语句，如def person(name,age,**kw),除必选参数外其余自动如kw中，字典形式输出
+                 person('michael',18,gender ='M',city = 'Chongqing')
+                 
+                 带筛选的命名关键字：def person(name,age,*,city,gender)
+                 套用参数组合时，固定顺序必选>默认>可变>命名关键字>关键字
+def f1(a,b,c=0,*args,**kw):
+print('a=',a,'b=',b,'c=',c,'args=',args,'kw=',kw)
+
+args = (1,2,3,4)
+kw = {'d':101,'w':'#'}
+f1(*args,**kw)
+
+R：a=1 b=2 c=3 args= (4,) kw= {'d':101, 'w':'#'} 
