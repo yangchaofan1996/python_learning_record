@@ -1,4 +1,4 @@
-递归函数栈的先进后出
+#递归函数栈的先进后出
 def digui(num):
     print('$'+str(num))
     # 临界值
@@ -10,7 +10,48 @@ def digui(num):
     print(num)
     
 digui(3)  
-理解练习
+
+#理解练习：汉诺塔的递归函数问题解决原理
+def move(n,a,b,c):
+    if n ==1:
+        print(a,'-->',c)
+    else:
+        #1把n-1个盘借助c移动到b柱
+        move(n-1,a,c,b)
+        #2把第n个盘借助b移动到c柱
+        move(1,a,b,c)
+        #3把n-1个盘借助a移动到c柱
+        move(n-1,b,a,c)
+        i = 0
+
+
+#实现过程及原理
+move(5,a,b,c)
+    move(4,a,c,b)
+        move(3,a,b,c）
+            move(2,a,c,b)
+                move(1,a,b,c)---->a To c
+                move(1,a,c,b)---->a To b
+                move(1,c,a,b)---->c To b
+            move(1,a,b,c)---->a To c
+            move(2,b,a,c)
+                move(1,b,c,a)---->b To a
+                move(1,b,a,c)---->b To c
+                move(1,a,b,c)---->a To c
+        move(1,a,c,b)---->a To b
+        move(3,c,a,b)
+            move(2,c,b,a)
+                move(1,c,a,b)---->c To b
+                move(1,c,b,a)---->c To a
+                move(1,b,c,a)---->b To a
+            move(1,c,a,b)---->c T b
+            move(2,a,c,b)
+                move(1,a,b,c)---->a To c
+                move(1,a,c,b)---->a To b
+                move(1,c,a,b)---->c To b
+    move(1,a,b,c)---->a To c
+    move(4,b,a,c)
+
 
 
 
